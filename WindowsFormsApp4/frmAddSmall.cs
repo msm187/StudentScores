@@ -12,8 +12,7 @@ namespace WindowsFormsApp4
 {
 	public partial class frmAddSmall : Form
 	{
-
-		private int newScore = -1;
+		private int newScore;
 
 		public frmAddSmall()
 		{
@@ -23,29 +22,30 @@ namespace WindowsFormsApp4
 		public int AddScore()
 		{
 			this.ShowDialog();
-
-			if (newScore <= 100 && newScore >= 0)
-			{
-				newScore = Convert.ToInt32(txtAddScore.Text);
-
-			}
-			else
-			{
-				newScore = -1;
-			}
 			return newScore;
 		}
 
 		private void btnAddScore_Click(object sender, EventArgs e)
 		{
-
-			
-			this.Close();
+			int num = 0;
+			if (Int32.TryParse(txtAddScore.Text, out num))
+			{
+				if (num <= 100 && num >= 0)
+				{
+					newScore = Convert.ToInt32(txtAddScore.Text);
+					this.Close();
+				}
+				else
+				{
+					MessageBox.Show("Score must be 0-100.  Please correct the score and try again.");
+				}
+			}
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
-			Close();
+			newScore = -1;
+			this.Close();
 		}
 	}
 }

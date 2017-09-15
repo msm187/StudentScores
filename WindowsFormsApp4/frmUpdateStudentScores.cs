@@ -45,10 +45,14 @@ namespace WindowsFormsApp4
 
 		private void btnAdd_Click(object sender, EventArgs e)
 		{
+			
 			frmAddSmall addStudentScore = new frmAddSmall();
 			int newScore = addStudentScore.AddScore();
-			grades.Add(newScore);
-			this.FillListBox();
+			if (newScore != -1)
+			{
+				grades.Add(newScore);
+				this.FillListBox();
+			}
 		}
 
 		
@@ -93,5 +97,17 @@ private void FillListBox()
 			MessageBox.Show("Please select a score to update.", "Action Needed");
 		}
 
+		private void btnRemove_Click(object sender, EventArgs e)
+		{
+			grades.RemoveAt(lstScores.SelectedIndex);
+			FillListBox();
+		}
+
+		private void btnClear_Click(object sender, EventArgs e)
+		{
+			grades.Clear();
+			lstScores.Items.Clear();
+		
+		}
 	}
 }

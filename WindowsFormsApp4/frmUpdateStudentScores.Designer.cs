@@ -76,7 +76,6 @@
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnAdd.Location = new System.Drawing.Point(207, 47);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -103,6 +102,7 @@
 			this.btnRemove.TabIndex = 3;
 			this.btnRemove.Text = "Remove";
 			this.btnRemove.UseVisualStyleBackColor = true;
+			this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
 			// 
 			// btnClear
 			// 
@@ -112,6 +112,7 @@
 			this.btnClear.TabIndex = 4;
 			this.btnClear.Text = "Clear";
 			this.btnClear.UseVisualStyleBackColor = true;
+			this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
 			// 
 			// btnOK
 			// 
@@ -132,7 +133,6 @@
 			this.btnCancel.TabIndex = 6;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			
 			// 
 			// frmUpdateStudentScores
 			// 

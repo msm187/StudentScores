@@ -52,9 +52,21 @@ namespace WindowsFormsApp4
 
 		private void btnUpdate_Click(object sender, EventArgs e)
 		{
-			score = Convert.ToInt32(txtUpdateScore.Text);
-			isChanged = false;
-			this.Close();
+			int num = 0;
+			if (Int32.TryParse(txtUpdateScore.Text, out num))
+			{
+				if (num <= 100 && num >= 0)
+				{
+					score = Convert.ToInt32(txtUpdateScore.Text);
+					isChanged = false;
+					this.Close();
+				}
+				else
+				{
+					MessageBox.Show("Score must be 0-100.  Please Correct and try again.");
+				}
+			}
+			
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e)
